@@ -1,30 +1,43 @@
+// Global Scope
 
+// burgers is declared using const and initialized with 2 elements
+const burgers = ['Hamburger', 'Cheeseburger'];
 
-// Step 1: Global Scope Variables
-let burgers = ['Hamburger', 'Cheeseburger']; // global scope
-let featuredDrink = 'Strawberry Milkshake'; // global scope
+// featuredDrink is declared using let and initialized as a string
+let featuredDrink = 'Strawberry Milkshake';
 
-// Step 2: Function and Function-Scoped Variable
+// Function Scope
+
+// addBurger is a function
 function addBurger() {
-    let newBurger = 'Flatburger'; // function-scoped variable
+    // creates a function-scoped variable using const
+    const newBurger = 'Flatburger';
+    // adds newBurger to the burgers array
     burgers.push(newBurger);
 }
 
-// Step 3: Block Scope
-if (true) { // block that always executes
-    let anotherNewBurger = 'Maple Bacon Burger'; // block-scoped variable
+// Block Scope
+
+// if statement whose condition is true
+if (true) {
+    // creates a block-scoped variable using const
+    const anotherNewBurger = 'Maple Bacon Burger';
+    // adds anotherNewBurger to the burgers array
     burgers.push(anotherNewBurger);
 }
 
-// Function to change the featured drink
+// Function to change featuredDrink
+
+// changeFeaturedDrink is a function
 function changeFeaturedDrink() {
-    featuredDrink = 'The JavaShake'; // updates global variable
+    // changes the value of the global featuredDrink variable
+    featuredDrink = 'The JavaShake';
 }
 
-// Example calls to see results (optional for testing)
-console.log('Burgers before adding Flatburger:', burgers);
-addBurger();
-console.log('Burgers after adding Flatburger:', burgers);
-console.log('Featured drink before change:', featuredDrink);
-changeFeaturedDrink();
-console.log('Featured drink after change:', featuredDrink);
+// Export for testing (Node.js)
+module.exports = {
+    burgers,
+    featuredDrink,
+    addBurger,
+    changeFeaturedDrink
+};
